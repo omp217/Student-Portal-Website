@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/background.css">
+    <link rel="stylesheet" href="/admin_student.css">
+  </head>
+<body>
+  <%- include("./partials/background.ejs") %>
+  <div class="body-container">
+
+    <form class="inputs" >
+      <label>Student ID</label>
+      <input name="student_id" type="text" id="student_id" required/>
+      <label>First Name</label>
+      <input name="first_name" type="text" id="first_name" required/>
+      <label>Last Name</label>
+      <input name="last_name" type="text" id="last_name" required/>
+      <button>Add Student</button>
+      <label id="error"></label>
+    </form>
+  </div>
+  <script>
+    const form = document.querySelector('form');
+    
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const student_id = document.getElementById('student_id').value;
+      const first_name = document.getElementById('first_name').value;
+      const last_name = document.getElementById('last_name').value;
+
+      const res = await fetch('/admin/student', {
+        method: 'POST',
+        body: JSON.stringify({ student_id, first_name, last_name }),
+        headers: {'Content-Type': 'application/json'}
+      });
+
+      const data = await res.json();
+      console.log(data);
+      if(data.err == '')
+      {
+        location.assign('/admin/student');
+      }
+      else
+      {
+        const errplace = document.getElementById('error');
+        errplace.textContent = data.err;
+      }
+    });
+
+  </script>
+</body>
+</html>
+

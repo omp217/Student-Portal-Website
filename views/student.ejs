@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/background.css">
+    <link rel="stylesheet" href="/student.css">
+</head>
+<body>
+  <%- include("./partials/background.ejs") %>
+  <div class="body-container">
+    <form class="inputs">
+      <label>Student ID</label>
+      <input type="text" id="student_id" name="student_id"/>
+      <button>View Result</button>
+      <label id="error"><%= err %></label>
+    </form>
+  </div>
+
+      <% if(ret.length)  { %>
+        <div id="container">
+          <div class="inner-container" id="first-inner">
+            <div class="row rt">Course ID</div>
+            <div class="row rt">Insem 1</div>
+            <div class="row rt">Insem 2</div>
+            <div class="row rt">Endsem</div>
+          </div>
+          <% ret.forEach(function (item) { %>
+            <div class="inner-container">
+              <div class="rt"><%= item.course_id %></div>
+              <div class="rt"><%= item.insem1_marks %></div>
+              <div class="rt"><%= item.insem2_marks %></div>
+              <div class="rt"><%= item.endsem_marks %></div>
+            </div>
+          <% }) %>
+        </div>
+      <% } %>
+  </div>
+  <script>
+    const form = document.querySelector('form');
+    
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const student_id = document.getElementById('student_id').value;
+
+      const res = await fetch('/student', {
+        method: 'POST',
+        body: JSON.stringify({ student_id }),
+        headers: {'Content-Type': 'application/json'}
+      });
+      const data = await res.json();
+      console.log(data);
+      console.log("Hello");
+      window.location.href = "/student";
+    });
+  </script>
+</body>
+</html>

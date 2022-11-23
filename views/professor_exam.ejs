@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/background.css">
+    <link rel="stylesheet" href="/professor_exam.css">
+</head>
+
+<body>
+  <%- include("./partials/background.ejs") %>
+  <div class="body-container">
+    <form class="inputs">
+      <label>Student ID</label>
+      <input type="text" id="student_id" name="student_id" required />
+      <label>Course ID</label>
+      <input type="text" id="course_id" name="course_id" required />
+      <label>Marks</label>
+      <input type="number" min="0" step="1" max="100" id="marks" name="marks" required />
+      <button>Add Marks</button>
+      <label id="error"></label>
+    </form>
+  </div>
+  <script>
+    var ex = <%- send %>;
+    ex = ex.exam;
+
+    const form = document.querySelector('form');
+    
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const student_id = document.getElementById('student_id').value;
+      const course_id = document.getElementById('course_id').value;
+      const marks = document.getElementById('marks').value;
+
+      let nexturl = '/professor/' + ex;
+      const res = await fetch(nexturl, {
+        method: 'POST',
+        body: JSON.stringify({ student_id, course_id, marks }),
+        headers: {'Content-Type': 'application/json'}
+      });
+
+      const data = await res.json();
+      if(data.err == '')
+      {
+        location.assign(nexturl);
+      }
+      else
+      {
+        const errplace = document.getElementById('error');
+        errplace.textContent = data.err;
+      }
+    });
+
+  </script>
+</body>
+</html>

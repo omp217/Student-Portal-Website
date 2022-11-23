@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
+
+*
+{
+  font-family: 'Roboto Mono', monospace;
+}
+
+input {
+  caret-color: white;
+}
+
+.body-container {
+  margin: 0;
+  width: 40%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  place-items: center;
+  overflow: hidden;
+  font-family: 'Roboto Mono', monospace;
+  position: absolute;
+  right: 11%;
+  bottom: 37%;
+  box-sizing: content-box;
+}
+
+
+.inputs {
+  text-align: left;
+  width: 100%;
+  margin: 0px 34px;
+}
+
+label,
+input,
+button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  color: white;
+}
+
+label {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+label:nth-of-type(2) {
+  margin-top: 12px;
+}
+
+input::placeholder {
+  color: gray;
+}
+
+input {
+  background: #625e5e2e;
+  padding: 10px;
+  padding-left: 20px;
+  height: 50px;
+  font-size: 14px;
+  border-radius: 50px;
+  box-shadow: inset 6px 6px 6px #3537397d, inset -6px -6px 6px #3537397d;
+}
+
+button {
+  color: white;
+  margin-top: 20px;
+  background: #625e5e2e;
+  height: 40px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 900;
+  box-shadow: 0px 0px 17px #ffffff7d;
+  transition: 0.5s;
+  margin-top: 34px;
+}
+
+button:hover {
+  box-shadow: none;
+}
+
+h1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#error
+{
+  margin-top: 17px;
+  text-align: center;
+  color: rgba(201, 31, 31, 0.797);
+}

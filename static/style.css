@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
+
+*
+{
+    /* box-sizing: border-box; */
+    margin: 0%;
+    padding: 0%;
+}
+
+/* Options  */
+
+.options
+{
+    width: 300px;
+    margin: 15px;
+    position: absolute;
+    right: 11%;
+    bottom: 37%;
+}
+
+.options div
+{
+    margin: 24px 0px;
+}
+
+.options a
+{
+    display: block;
+    padding: 10px 5px;
+    background-color: #625e5e2e;
+    border-radius: 17px;
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 18px;
+    font-weight: 100;
+    color: white;
+    text-decoration: none;
+    opacity: 0.5;
+}
+
+.options a:hover
+{
+    opacity: 1;
+}
+
+/* Heading  */
+
+.heading
+{
+    position: absolute;
+    top: 30%;
+    left: 9%;
+    color: white ;
+}
+
+.heading h1
+{
+    font-family: 'Roboto Mono', monospace;
+    font-size: 100px;
+    display: block;
+    text-align: center;
+}
+
+.heading p
+{
+    font-family: 'Roboto Mono', monospace;
+    font-size: 32px;
+    margin: 15px;
+    text-align: center;
+}
+
+
+/* Admin */
+
+/* Description */
+
+.description
+{
+    position: absolute;
+    right: 6%;
+    bottom: 63%;
+    width: 30%;
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 18px;
+    font-weight: 100;
+    color: white;
+}
+
+/* admin-heading */
+
+.admin-heading h1
+{
+    font-size: 72px;
+}
+
+.admin-heading p
+{
+    font-size: 24px;
+}
